@@ -53,15 +53,7 @@ if (giocoPalindromi) {
 var condizione = false;
 var flag = false;
 while(!(condizione)){
-  var scelta = (prompt("Scelta tra pari e dispari")).toLowerCase();
-  // switch(scelta){
-  //   case "pari":
-  //     condizione = false;
-  //     break;
-  //   case "dispari":
-  //     condizione = false;
-  //     break;
-  // }
+  var scelta = (prompt("Scelta tra pari e dispari")).toLowerCase();  
   if (scelta == "pari" || scelta == "dispari") {
     condizione = true;
     if (scelta == "pari") {
