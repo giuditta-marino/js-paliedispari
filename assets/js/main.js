@@ -70,7 +70,7 @@ function pariDispari(num) {
     console.log("La somma è pari, hai perso!");
   } else if (parseInt((num%2)) && (flag)) {
     console.log("La somma è dispari, hai perso!");
-  } else if (parseInt((!(num%2))) && (!(flag))) {
+  } else if (parseInt((num%2)) && (!(flag))) {
     console.log("La somma è dispari, hai vinto!");
   }
 }
