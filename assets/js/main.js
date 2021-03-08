@@ -30,24 +30,54 @@ if (giocoPalindromi) {
 // SECONDO PROBLEMA
 
 // FAR SCEGLIERE ALL'UTENTE PARI O DISPARI
-var paridispariUtente = prompt("Scrivi pari o dispari");
+// var paridispariUtente = prompt("Scrivi pari o dispari");
 
+// var flag = false;
+
+// if (paridispariUtente.toLowerCase() == "pari") {
+//   var numeroUtente = prompt("Inserisci un numero da 1 a 5");
+//   console.log(numeroUtente);
+//   flag = true;
+// } else if (paridispariUtente.toLowerCase() == "dispari") {
+//   var numeroUtente = prompt("Inserisci un numero da 1 a 5");
+//   console.log(numeroUtente);
+//   console.log(flag);
+// } else {
+//   while (paridispariUtente.toLowerCase() != "pari" || paridispariUtente.toLowerCase() != "dispari") {
+//     alert("non mi hai dato pari o dispari!");
+//     var paridispariUtente = prompt("Scrivi pari o dispari");
+//     console.log(paridispariUtente);
+//   }
+// }
+
+var condizione = false;
 var flag = false;
-
-if (paridispariUtente.toLowerCase() == "pari") {
-  var numeroUtente = prompt("Inserisci un numero da 1 a 5");
-  console.log(numeroUtente);
-  flag = true;
-} else if (paridispariUtente.toLowerCase() == "dispari") {
-  var numeroUtente = prompt("Inserisci un numero da 1 a 5");
-  console.log(numeroUtente);
-  console.log(flag);
-} else {
-  while (paridispariUtente.toLowerCase() != "pari" || paridispariUtente.toLowerCase() != "dispari") {
-    alert("non mi hai dato pari o dispari!");
-    var paridispariUtente = prompt("Scrivi pari o dispari");
+while(!(condizione)){
+  var scelta = (prompt("Scelta tra pari e dispari")).toLowerCase();
+  // switch(scelta){
+  //   case "pari":
+  //     condizione = false;
+  //     break;
+  //   case "dispari":
+  //     condizione = false;
+  //     break;
+  // }
+  if (scelta == "pari" || scelta == "dispari") {
+    condizione = true;
+    if (scelta == "pari") {
+      flag = true;
+    } else if (scelta == "dispari") {
+      flag = false;
+    }
+  } else {
+    alert ("Non hai scritto pari o dispari!")
   }
 }
+
+console.log(flag);
+
+var numeroUtente = prompt("dammi un numero da 1 a 5");
+console.log(numeroUtente);
 
 // CREO UNA FUNZIONE PER GENERARE NUMERI RANDOM ENTRO UN RANGE
 function randomOneToFive(min, max){
@@ -63,18 +93,25 @@ console.log(numeroComputer);
 var sommaNumeri = parseInt(numeroUtente) + parseInt(numeroComputer);
 console.log(sommaNumeri);
 
-function pariDispari(num) {
-  if (parseInt(!(num%2)) && (flag)) {
-    console.log("La somma è pari, hai vinto!");
-  } else if (parseInt(!(num%2)) && (!(flag)))  {
-    console.log("La somma è pari, hai perso!");
-  } else if (parseInt((num%2)) && (flag)) {
-    console.log("La somma è dispari, hai perso!");
-  } else if (parseInt((num%2)) && (!(flag))) {
-    console.log("La somma è dispari, hai vinto!");
+var risultato2 = document.getElementById('risultato-gioco-2');
+
+function pariDispari(num, datoUtente) {
+  var sommaPari = false;
+  if (!(num%2)) {
+    sommaPari = true;
+    if (datoUtente) {
+      risultato2.innerHTML = "Hai vinto";
+    } else if (!(datoUtente)) {
+      risultato2.innerHTML = "Hai perso";
+    }
+  } else if (num%2) {
+    if (datoUtente) {
+      risultato2.innerHTML = "Hai perso";
+    } else if (!(datoUtente)) {
+      risultato2.innerHTML = "Hai vinto";
+    }
   }
+  return sommaPari;
 }
 
-var risultatoPariDispari = pariDispari(sommaNumeri);
-
-// STAMPO IL RISULTATO
+var controlloSomma = pariDispari(sommaNumeri, flag);
