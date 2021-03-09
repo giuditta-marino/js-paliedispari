@@ -85,25 +85,29 @@ console.log(numeroComputer);
 var sommaNumeri = parseInt(numeroUtente) + parseInt(numeroComputer);
 console.log(sommaNumeri);
 
-var risultato2 = document.getElementById('risultato-gioco-2');
+var controlloSomma = pariDispari(sommaNumeri, flag);
+console.log(controlloSomma);
+if (controlloSomma) {
+  document.getElementById('risultato-gioco-2').innerHTML = "Hai vinto!"
+  } else {
+      document.getElementById('risultato-gioco-2').innerHTML = "Hai perso!"
+}
 
 function pariDispari(num, datoUtente) {
   var sommaPari = false;
   if (!(num%2)) {
     sommaPari = true;
     if (datoUtente) {
-      risultato2.innerHTML = "Hai vinto";
+      return true;
     } else if (!(datoUtente)) {
-      risultato2.innerHTML = "Hai perso";
+      return false;
     }
   } else if (num%2) {
     if (datoUtente) {
-      risultato2.innerHTML = "Hai perso";
+      return false;
     } else if (!(datoUtente)) {
-      risultato2.innerHTML = "Hai vinto";
+      return true;
     }
   }
-  return sommaPari;
+  // return sommaPari;
 }
-
-var controlloSomma = pariDispari(sommaNumeri, flag);
