@@ -87,27 +87,22 @@ console.log(sommaNumeri);
 
 var controlloSomma = pariDispari(sommaNumeri, flag);
 console.log(controlloSomma);
-if (controlloSomma) {
-  document.getElementById('risultato-gioco-2').innerHTML = "Hai vinto!"
-  } else {
-      document.getElementById('risultato-gioco-2').innerHTML = "Hai perso!"
-}
+document.getElementById("risultato-gioco-2").innerHTML = pariDispari(sommaNumeri, flag);
 
 function pariDispari(num, datoUtente) {
   var sommaPari = false;
   if (!(num%2)) {
     sommaPari = true;
     if (datoUtente) {
-      return true;
+      return "hai vinto";
     } else if (!(datoUtente)) {
-      return false;
+      return "hai perso";
     }
   } else if (num%2) {
     if (datoUtente) {
-      return false;
+      return "hai perso";
     } else if (!(datoUtente)) {
-      return true;
+      return "hai vinto";
     }
   }
-  // return sommaPari;
 }
