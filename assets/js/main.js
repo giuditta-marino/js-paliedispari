@@ -53,7 +53,7 @@ if (giocoPalindromi) {
 var condizione = false;
 var flag = false;
 while(!(condizione)){
-  var scelta = (prompt("Scelta tra pari e dispari")).toLowerCase();  
+  var scelta = (prompt("Scelta tra pari e dispari")).toLowerCase();
   if (scelta == "pari" || scelta == "dispari") {
     condizione = true;
     if (scelta == "pari") {
@@ -72,13 +72,13 @@ var numeroUtente = prompt("dammi un numero da 1 a 5");
 console.log(numeroUtente);
 
 // CREO UNA FUNZIONE PER GENERARE NUMERI RANDOM ENTRO UN RANGE
-function randomOneToFive(min, max){
+function randomNumberInRange(min, max){
   var randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
   return randomNumber;
 }
 
 // GENERO UN NUMERO RANDOM DA 1 A 5 PER IL COMPUTER USANDO LA FUNZIONE
-var numeroComputer = randomOneToFive(1, 5);
+var numeroComputer = randomNumberInRange(1, 5);
 console.log(numeroComputer);
 
 // SOMMO IL  NUMERO FORNITO DALL'UTENTE E IL NUMERO GENERATO DAL PC E STABILISCO SE E' PARI O DISPARI TRAMITE UNA FUNZIONE
